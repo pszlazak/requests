@@ -44,6 +44,15 @@ set with `headers=`.
 If credentials for the hostname are found, the request is sent with HTTP Basic
 Auth.
 
+Requests will search for the netrc file at `~/.netrc`, `~/_netrc`, or at the path
+specified by the `NETRC` environment variable. `~` denotes the user's home
+directory, which is `$HOME` on Unix based systems and `%USERPROFILE%` on Windows.
+
+Set `NETRC` to empty file, if no credentials should be taken from user's netrc file.
+In Unix based systems, you can set `NETRC` to `/dev/null`. In Windows, you can
+set `NETRC` to `NUL` (`$env:NETRC = 'NUL'` in PowerShell, `set NETRC='NUL'` in
+Command Prompt).
+
 
 Digest Authentication
 ---------------------
